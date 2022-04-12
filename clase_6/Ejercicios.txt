@@ -1,0 +1,138 @@
+//Nicolas Troncoso Pereira
+
+1)
+
+import javax.swing.JOptionPane;
+
+
+public class Ejercicio1 {
+
+    public static void main(String[] args) {
+        String[] buttons = { "Cirulo", "Cuadrado", "Triangulo" };
+        int opcion = JOptionPane.showOptionDialog(null, "Seleccione una opcion: ", "Seleccione una opcion",
+        JOptionPane.INFORMATION_MESSAGE, 0, null, buttons, buttons[2]);
+        switch (opcion) {
+            case 0:
+                int radio = Integer.parseInt(JOptionPane.showInputDialog(null, "ingrese un valor: "));
+                JOptionPane.showMessageDialog(null, areaCirculo(radio));
+                break;
+            case 1:
+                int lado = Integer.parseInt(JOptionPane.showInputDialog(null, "ingrese un valor: "));
+                JOptionPane.showMessageDialog(null, areaCuadrado(lado));
+                break;
+            default:
+                
+                int base = Integer.parseInt(JOptionPane.showInputDialog(null, "ingrese un valor: "));
+                int altura = Integer.parseInt(JOptionPane.showInputDialog(null, "ingrese un valor: "));
+                JOptionPane.showMessageDialog(null, areaTriangulo(base, altura));
+                break;
+        }
+    }
+    public static double areaCirculo(int radio){
+        double resultado = 0.0;
+        resultado = Math.PI*Math.pow(radio, 2);
+        return resultado;
+    }
+    public static double areaCuadrado(int lado){
+        double resultado = 0.0;
+        resultado = lado * lado;
+        return resultado;
+    }
+    public static double areaTriangulo(int base, int altura){
+        double resultado = 0.0;
+        resultado = (base*altura)/2;
+        return resultado;
+    }
+}
+
+2)
+//Nicolas Troncoso Pereira
+import java.util.Random;
+import javax.swing.JOptionPane;
+
+
+public class Ejercicio2 {
+    public static void main(String[] args) {
+        int numeros = Integer.parseInt(JOptionPane.showInputDialog(null, "cantidad de numeros aleatorios"));
+        int minimo = Integer.parseInt(JOptionPane.showInputDialog(null, "numero minimo"));
+        int maximo = Integer.parseInt(JOptionPane.showInputDialog(null, "numero maximo"));
+        String numerosGenerados = "";
+        int numero= 0;
+        for (int i = 0; i < numeros; i++) {
+            numero = generarNumero(minimo, maximo);
+            numerosGenerados += "," + numero;
+        }
+        JOptionPane.showMessageDialog(null, "Los numeros generados son: " + numerosGenerados.substring(1));
+    }
+    public static int generarNumero(int min, int max){
+        int numero = 0;
+
+		Random random = new Random();
+
+		numero = random.nextInt(max + min) + min;
+        return numero;
+    }
+}
+
+3)
+//Nicolas Troncoso Pereira
+import javax.swing.JOptionPane;
+
+public class Ejercicio3 {
+    public static void main(String[] args) {
+        int numero = Integer.parseInt(JOptionPane.showInputDialog(null, "ingrese numero"));
+        String mensaje = esPrimo(numero) ? "es un numero primo": "no es un numero primo";
+        JOptionPane.showMessageDialog(null, mensaje);
+    }
+    public static boolean esPrimo(int numero){
+        boolean resultado=true;
+        for (int i = 2; resultado && (i<=Math.sqrt(numero));i++){
+            if (numero % i == 0) resultado = false;
+        }
+        return resultado;
+    }
+}
+
+4)
+//Nicolas Troncoso Pereira
+import javax.swing.JOptionPane;
+
+public class Ejercicio4 {
+    public static void main(String[] args) {
+        int numero = Integer.parseInt(JOptionPane.showInputDialog(null, "ingrese numero"));
+        int numeroFactorial = factorial(numero) ;
+        JOptionPane.showMessageDialog(null, "el numero factorial es:" + numeroFactorial);
+    }
+    public static int factorial(int numero){
+        int resultado = 1;
+        for (int i = numero; i > 0 ;i--){
+            resultado *= i;
+        }
+        return resultado;
+    }
+}
+
+5)
+//Nicolas Troncoso Pereira
+import javax.swing.JOptionPane;
+
+
+
+public class Ejercicio5 {
+    public static void main(String[] args) {
+        int numero = Integer.parseInt(JOptionPane.showInputDialog(null, "ingrese numero"));
+        String numeroBinario = aBinario(numero) ;
+        JOptionPane.showMessageDialog(null, "el numero binario es:" + numeroBinario);
+    }
+    public static String aBinario(int numero){
+        String resultado = "";
+        int residuo;
+        while(numero > 1){
+            residuo = numero % 2;
+            numero /= 2;
+            resultado = residuo+resultado;
+        }
+        resultado = numero + resultado;
+        return resultado;
+    }
+}
