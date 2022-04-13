@@ -1,0 +1,260 @@
+//Nicolas Troncoso Pereira
+1)
+
+import java.util.Scanner;
+
+public class Ejercicio1 {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("ingrese un valor: ");
+        int numero = Integer.parseInt(entrada.nextLine());
+        int cifras = numeroCifras(numero);
+        System.out.println(cifras);
+        entrada.close();
+    }
+    public static int numeroCifras(int numero){
+        int cifras = 0;
+        while(numero > 0){
+            cifras += 1;
+            numero /= 10;
+        }
+        return cifras;
+    }
+}
+
+2)
+import java.util.Scanner;
+
+public class Ejercicio2 {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("ingrese un valor: ");
+        double cantidad = Double.parseDouble(entrada.nextLine());
+
+        System.out.println("ingrese el tipo de cambio:");
+        System.out.println("libra");
+        System.out.println("yen");
+        System.out.println("dolar");
+        String tipoCambio = entrada.nextLine();
+        cambio(cantidad , tipoCambio);
+        entrada.close();
+    }
+
+    private static void cambio(double cantidad, String tipoCambio) {
+        double resultado = 0.0;
+        if(tipoCambio.equals("libra")) resultado = cantidad * 0.86;
+        if(tipoCambio.equals("yen")) resultado = cantidad * 1.28611;
+        if(tipoCambio.equals("dolar")) resultado = cantidad * 129.852;
+        System.out.println("el cambio es: " + resultado);
+    }
+}
+
+3)
+import java.util.Scanner;
+
+public class Ejercicio3 {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("ingrese la altura: ");
+        int altura = Integer.parseInt(entrada.nextLine());
+        dibujarEscalera(altura);
+        entrada.close();
+    }
+
+    private static void dibujarEscalera(int altura) {
+        String escalera = "";
+        String grada = "";
+        for (int i = 0; i < altura; i++) {
+            grada =generarGrada(i+1);
+            escalera+= grada+"\n";
+        }
+        System.out.println(escalera);
+    }
+    private static String generarGrada(int ancho){
+        String grada = "";
+        for (int i = 0; i < ancho; i++) {
+            grada += "*";
+        }
+        return grada;
+    }
+    
+}
+
+
+4)
+import java.util.Scanner;
+
+public class Ejercicio4 {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("ingrese la altura: ");
+        int altura = Integer.parseInt(entrada.nextLine());
+        dibujarEscalera(altura);
+        entrada.close();
+    }
+
+    private static void dibujarEscalera(int altura) {
+        String escalera = "";
+        String grada = "";
+        for (int i = 0; i < altura; i++) {
+            grada =generarGrada(i+1);
+            escalera = grada+"\n" + escalera;
+        }
+        System.out.println(escalera);
+    }
+    private static String generarGrada(int ancho){
+        String grada = "";
+        for (int i = 0; i < ancho; i++) {
+            grada += "*";
+        }
+        return grada;
+    }
+}
+
+5)
+import java.util.Scanner;
+
+public class Ejercicio5 {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("ingrese la altura: ");
+        int altura = Integer.parseInt(entrada.nextLine());
+        dibujarEscalera(altura);
+        entrada.close();
+    }
+
+    private static void dibujarEscalera(int altura) {
+        String escalera = "";
+        String grada = "";
+        for (int i = 0; i < altura; i++) {
+            grada =generarGrada(i+1);
+            escalera += grada+"\n";
+        }
+        System.out.println(escalera);
+    }
+    private static String generarGrada(int ancho){
+        String grada = "";
+        String simbolo = "";
+        for (int i = 0; i < ancho; i++) {
+            simbolo = ancho + "";
+            grada += simbolo +"";
+        }
+        return grada;
+    }
+}
+
+6)
+import java.util.Scanner;
+
+public class Ejercicio6 {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("ingrese la altura: ");
+        int altura = Integer.parseInt(entrada.nextLine());
+        dibujarEscalera(altura);
+        entrada.close();
+    }
+
+    private static void dibujarEscalera(int altura) {
+        String escalera = "";
+        String grada = "";
+        for (int i = 0; i < altura; i++) {
+            grada =generarGrada(i+1);
+            escalera += grada+"\n";
+        }
+        System.out.println(escalera);
+    }
+    private static String generarGrada(int ancho){
+        String grada = "";
+        for (int i = 0; i < ancho; i++) {
+            grada += i+1 +"";
+        }
+        return grada;
+    }
+}
+
+7)
+import java.util.Scanner;
+
+public class Ejercicio7 {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("ingrese la altura: ");
+        int altura = Integer.parseInt(entrada.nextLine());
+        dibujarPiramida(altura);
+        entrada.close();
+    }
+
+    private static void dibujarPiramida(int altura) {
+        String escalera = "";
+        String grada = "";
+        int espacios = altura-1;
+        for (int i = 0; i < altura; i++) {
+            grada = generarGrada(i+1, i);
+            grada = agregarEspacio(grada, espacios);
+            escalera += grada+"\n";
+            espacios--;
+        }
+        System.out.println(escalera);
+    }
+    private static String agregarEspacio(String grada, int espacios) {
+        for (int i = 0; i < espacios; i++) {
+            grada = " " + grada;
+        }
+        return grada;
+    }
+
+    private static String generarGrada(int ancho, int anchoExtra){
+        String grada = "";
+        for (int i = 0; i < ancho; i++) {
+            grada += "*";
+        }
+        for(int j = 0 ; j<anchoExtra;j++){
+            grada += "*";
+        }
+        return grada;
+    }
+}
+
+8)
+import java.util.Scanner;
+
+public class Ejercicio8 {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("ingrese la altura: ");
+        int altura = Integer.parseInt(entrada.nextLine());
+        dibujarPiramida(altura);
+        entrada.close();
+    }
+
+    private static void dibujarPiramida(int altura) {
+        String escalera = "";
+        String grada = "";
+        int espacios = altura-1;
+        for (int i = 0; i < altura; i++) {
+            grada = generarGrada(i+1, i);
+            grada = agregarEspacio(grada, espacios);
+            escalera = grada+"\n" + escalera;
+            espacios--;
+        }
+        System.out.println(escalera);
+    }
+    private static String agregarEspacio(String grada, int espacios) {
+        for (int i = 0; i < espacios; i++) {
+            grada = " " + grada;
+        }
+        return grada;
+    }
+
+    private static String generarGrada(int ancho, int anchoExtra){
+        String grada = "";
+        for (int i = 0; i < ancho; i++) {
+            grada += "*";
+        }
+        for(int j = 0 ; j<anchoExtra;j++){
+            grada += "*";
+        }
+        return grada;
+    }
+}
